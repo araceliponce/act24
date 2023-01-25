@@ -35,15 +35,15 @@ export class ActComponent {
   constructor(public dialog: MatDialog) {}
 
   openDialog(){
-    this.dialog.open(BoxComponent,{
+    //la constante debe ser = a this dialog open(...{})
+    const dialogRef = this.dialog.open(BoxComponent,{
       width:'400px',
       data:{name: this.name, sport: this.sport}
-    })
-
-    /* MatDialogRef<BoxComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData.afterClosed().subscribe(result => {
+    });
+    //para obtener el resultado (this.sport)
+    dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
       this.sport = result;
-    }); */
+    });
   }
 }

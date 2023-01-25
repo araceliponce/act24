@@ -1,20 +1,18 @@
 <section>
-  <!-- el deporte escrito en el dialog no aparece al hacer clic en Aceptar -->
   <mat-form-field appearance="fill">
-    <!-- color="accent" -->
     <mat-label for="nombreInput">¿Cuál es tu nombre?</mat-label>
-    <input matInput [(ngModel)]="name" type="text" id="nombreInput" name="nombreInput">
+    <input matInput [(ngModel)]="name" type="text" id="nombreInput" name="nombreInput" autocomplete="false">
   </mat-form-field>
 
   <div>
     <p *ngIf="name">Hola, {{name}} ¿Cuál es tu deporte favorito?</p>
   </div>
 
-  <button mat-raised-button (click)="openDialog()">Click aquí</button>
+  <button mat-raised-button (click)="openDialog()" [disabled]="!name">Click aquí</button>
 
-  <p *ngIf="sport">
-    Tu deporte favorito es: <i>{{sport}}</i>
-  </p>
+  <div class="mt">
+    <p *ngIf="sport"> Tu deporte favorito es: <em>{{sport}}</em> </p>
+  </div>
 
 </section>
 
@@ -32,5 +30,13 @@
     padding: 2rem;
     width: 30rem;
     border-radius: .5rem;
+  }
+
+  .mt:empty {
+    display: none;
+  }
+
+  .mt {
+    margin-top: 1rem;
   }
 </style>

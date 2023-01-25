@@ -13,11 +13,11 @@ import { MatInputModule } from '@angular/material/input';
 export class BoxComponent implements OnInit {
 
 
-    constructor(
-      public dialogRef: MatDialogRef<ActComponent>,
-      @Inject(MAT_DIALOG_DATA) public data: DialogData,
-    ) {}
-    
+  constructor(
+    public dialogRef: MatDialogRef<ActComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: DialogData,
+  ) {}
+
   ngOnInit(): void {
     throw new Error('Method not implemented.');
   }
